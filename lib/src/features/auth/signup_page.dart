@@ -115,7 +115,7 @@ class _SignupPageState extends State<SignupPage> {
                 end: Alignment.bottomRight,
                 colors: [
                   AppColors.primaryColor,
-                  AppColors.primaryColor.withOpacity(0.8),
+                  AppColors.primaryColor.withValues(alpha: 0.8),
                   const Color(0xFF00A8E8),
                 ],
               ),
@@ -150,7 +150,7 @@ class _SignupPageState extends State<SignupPage> {
                           Text(
                             'Already have an account?',
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               fontSize: 13,
                             ),
                           ),
@@ -163,7 +163,7 @@ class _SignupPageState extends State<SignupPage> {
                                 vertical: 8,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: const Text(
@@ -509,12 +509,12 @@ class _SignupPageState extends State<SignupPage> {
             colors: [
               AppColors.primaryColor,
               const Color(0xFF00A8E8),
-              const Color(0xFFE040FB).withOpacity(0.8),
+              const Color(0xFFE040FB).withValues(alpha: 0.8),
             ],
           ),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primaryColor.withOpacity(0.3),
+              color: AppColors.primaryColor.withValues(alpha: 0.3),
               blurRadius: 15,
               offset: const Offset(0, 8),
             ),

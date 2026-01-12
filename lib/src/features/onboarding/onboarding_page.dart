@@ -323,7 +323,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
@@ -379,12 +379,12 @@ class _OnboardingPageState extends State<OnboardingPage>
                     end: Alignment.bottomRight,
                     colors: [
                       AppColors.primaryColor,
-                      AppColors.primaryColor.withOpacity(0.8),
+                      AppColors.primaryColor.withValues(alpha: 0.8),
                     ],
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primaryColor.withOpacity(0.3),
+                      color: AppColors.primaryColor.withValues(alpha: 0.3),
                       blurRadius: 30,
                       offset: const Offset(0, 15),
                     ),
@@ -397,7 +397,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                       width: 70,
                       height: 70,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
@@ -411,7 +411,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                       width: 100,
                       height: 14,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(7),
                       ),
                     ),
@@ -420,7 +420,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                       width: 60,
                       height: 10,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
@@ -468,8 +468,8 @@ class _OnboardingPageState extends State<OnboardingPage>
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.primaryColor.withOpacity(0.15),
-                    AppColors.primaryColor.withOpacity(0.05),
+                    AppColors.primaryColor.withValues(alpha: 0.15),
+                    AppColors.primaryColor.withValues(alpha: 0.05),
                     Colors.transparent,
                   ],
                 ),
@@ -487,7 +487,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    AppColors.primaryColor.withOpacity(0.8),
+                    AppColors.primaryColor.withValues(alpha: 0.8),
                     AppColors.primaryColor,
                   ],
                 ),
@@ -518,7 +518,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                         child: Icon(
                           Icons.headphones_rounded,
                           size: 90,
-                          color: Colors.white.withOpacity(0.9),
+                          color: Colors.white.withValues(alpha: 0.9),
                         ),
                       ),
                     ],
@@ -527,7 +527,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                   Icon(
                     Icons.music_note_rounded,
                     size: 40,
-                    color: Colors.white.withOpacity(0.6),
+                    color: Colors.white.withValues(alpha: 0.6),
                   ),
                 ],
               ),
@@ -560,7 +560,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     blurRadius: 10,
                   ),
                 ],
@@ -609,14 +609,14 @@ class _OnboardingPageState extends State<OnboardingPage>
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    AppColors.primaryColor.withOpacity(0.9),
+                    AppColors.primaryColor.withValues(alpha: 0.9),
                     AppColors.primaryColor,
                     const Color(0xFF004EC4),
                   ],
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primaryColor.withOpacity(0.4),
+                    color: AppColors.primaryColor.withValues(alpha: 0.4),
                     blurRadius: 40,
                     offset: const Offset(0, 20),
                   ),
@@ -630,10 +630,10 @@ class _OnboardingPageState extends State<OnboardingPage>
                     width: 80,
                     height: 80,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white.withValues(alpha: 0.2),
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withValues(alpha: 0.3),
                         width: 2,
                       ),
                     ),
@@ -652,7 +652,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                         Container(
                           height: 4,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.3),
+                            color: Colors.white.withValues(alpha: 0.3),
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: Row(
@@ -677,14 +677,14 @@ class _OnboardingPageState extends State<OnboardingPage>
                             Text(
                               '1:23:45',
                               style: TextStyle(
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                                 fontSize: 12,
                               ),
                             ),
                             Text(
                               '2:15:00',
                               style: TextStyle(
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                                 fontSize: 12,
                               ),
                             ),
@@ -721,7 +721,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     blurRadius: 10,
                   ),
                 ],
@@ -755,7 +755,7 @@ class _OnboardingPageState extends State<OnboardingPage>
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: color.withOpacity(0.3),
+            color: color.withValues(alpha: 0.3),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -772,7 +772,7 @@ class _OnboardingPageState extends State<OnboardingPage>
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 20,
             offset: const Offset(0, -5),
           ),
@@ -819,7 +819,7 @@ class _OnboardingPageState extends State<OnboardingPage>
             borderRadius: BorderRadius.circular(4),
             color: _currentPage == index
                 ? AppColors.primaryColor
-                : AppColors.primaryColor.withOpacity(0.3),
+                : AppColors.primaryColor.withValues(alpha: 0.3),
           ),
         ),
       ),
@@ -840,8 +840,8 @@ class _OnboardingPageState extends State<OnboardingPage>
               color: AppColors.primaryColor,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primaryColor.withOpacity(
-                    0.3 + (_buttonPulseAnimation.value - 1) * 2,
+                  color: AppColors.primaryColor.withValues(
+                    alpha: 0.3 + (_buttonPulseAnimation.value - 1) * 2,
                   ),
                   blurRadius: 20,
                   spreadRadius: (_buttonPulseAnimation.value - 1) * 6,

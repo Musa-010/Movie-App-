@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/user_model.dart';
 
@@ -49,7 +50,7 @@ class AuthService {
       });
     } catch (e) {
       // Profile might already exist, ignore error
-      print('Profile creation error: $e');
+      // print('Profile creation error: $e');
     }
   }
 
@@ -124,9 +125,10 @@ class AuthService {
           .eq('id', currentUser!.id)
           .single();
 
+      debugPrint('Fetched profile data: $response');
       return UserModel.fromJson(response);
     } catch (e) {
-      print('Get profile error: $e');
+      debugPrint('Get profile error: $e');
       return null;
     }
   }
@@ -140,16 +142,24 @@ class AuthService {
     try {
       if (currentUser == null) return;
 
-      final updates = <String, dynamic>{};
+      final updates = <String, dynamic>{
+        'id': currentUser!.id,
+        'email': currentUser!.email,
+      };
+      // Always update fullName and phone if provided (even if empty string)
       if (fullName != null) updates['full_name'] = fullName;
       if (phone != null) updates['phone'] = phone;
-      if (avatarUrl != null) updates['avatar_url'] = avatarUrl;
+      // Only update avatarUrl if a new image was uploaded
+      if (avatarUrl != null && avatarUrl.isNotEmpty) {
+        updates['avatar_url'] = avatarUrl;
+      }
 
+      // Use upsert to create the profile if it doesn't exist
       await _supabase
           .from('profiles')
-          .update(updates)
-          .eq('id', currentUser!.id);
+          .upsert(updates, onConflict: 'id');
     } catch (e) {
+      debugPrint('Update profile error: $e');
       rethrow;
     }
   }

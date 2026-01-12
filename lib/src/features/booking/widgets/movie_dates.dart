@@ -22,7 +22,7 @@ class _MovieDatesState extends State<MovieDates> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      separatorBuilder: (_, __) => const SizedBox(width: 10),
+      separatorBuilder: (context, index) => const SizedBox(width: 10),
       clipBehavior: Clip.none,
       physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.horizontal,

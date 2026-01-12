@@ -259,20 +259,20 @@ class _LandingPageState extends State<LandingPage>
               alignment: Alignment.center,
               children: [
                 // Outer ring with glow
-                _buildGlowRing(320, AppColors.primaryColor.withOpacity(0.15), 2.5),
+                _buildGlowRing(320, AppColors.primaryColor.withValues(alpha: 0.15), 2.5),
                 // Middle ring
                 Transform(
                   alignment: Alignment.center,
                   transform: Matrix4.identity()
                     ..rotateZ(_rotationController.value * math.pi),
-                  child: _buildGlowRing(260, const Color(0xFF00A8E8).withOpacity(0.12), 2),
+                  child: _buildGlowRing(260, const Color(0xFF00A8E8).withValues(alpha: 0.12), 2),
                 ),
                 // Inner ring
                 Transform(
                   alignment: Alignment.center,
                   transform: Matrix4.identity()
                     ..rotateZ(-_rotationController.value * 2 * math.pi),
-                  child: _buildGlowRing(200, const Color(0xFF4FC3F7).withOpacity(0.1), 1.5),
+                  child: _buildGlowRing(200, const Color(0xFF4FC3F7).withValues(alpha: 0.1), 1.5),
                 ),
               ],
             ),
@@ -291,7 +291,7 @@ class _LandingPageState extends State<LandingPage>
         border: Border.all(color: color, width: width),
         boxShadow: [
           BoxShadow(
-            color: color.withOpacity(0.3),
+            color: color.withValues(alpha: 0.3),
             blurRadius: 20,
             spreadRadius: 5,
           ),
@@ -328,12 +328,12 @@ class _LandingPageState extends State<LandingPage>
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primaryColor.withOpacity(0.6),
+                        color: AppColors.primaryColor.withValues(alpha: 0.6),
                         blurRadius: 50,
                         spreadRadius: 15,
                       ),
                       BoxShadow(
-                        color: const Color(0xFF00A8E8).withOpacity(0.4),
+                        color: const Color(0xFF00A8E8).withValues(alpha: 0.4),
                         blurRadius: 70,
                         spreadRadius: 25,
                       ),
@@ -352,7 +352,7 @@ class _LandingPageState extends State<LandingPage>
                                 borderRadius: BorderRadius.circular(38),
                                 gradient: RadialGradient(
                                   colors: [
-                                    Colors.white.withOpacity(0.2 * _pulseAnimation.value),
+                                    Colors.white.withValues(alpha: 0.2 * _pulseAnimation.value),
                                     Colors.transparent,
                                   ],
                                 ),
@@ -374,7 +374,7 @@ class _LandingPageState extends State<LandingPage>
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                                Colors.white.withOpacity(0.35),
+                                Colors.white.withValues(alpha: 0.35),
                                 Colors.transparent,
                               ],
                             ),
@@ -409,11 +409,11 @@ class _LandingPageState extends State<LandingPage>
                               child: Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.25),
+                                  color: Colors.white.withValues(alpha: 0.25),
                                   borderRadius: BorderRadius.circular(10),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
+                                      color: Colors.black.withValues(alpha: 0.2),
                                       blurRadius: 8,
                                       offset: const Offset(0, 2),
                                     ),
@@ -506,9 +506,9 @@ class _LandingPageState extends State<LandingPage>
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 colors: [
-                  Colors.white.withOpacity(0.5),
-                  Colors.white.withOpacity(0.9),
-                  Colors.white.withOpacity(0.5),
+                  Colors.white.withValues(alpha: 0.5),
+                  Colors.white.withValues(alpha: 0.9),
+                  Colors.white.withValues(alpha: 0.5),
                 ],
                 stops: [
                   0.0,
@@ -595,17 +595,17 @@ class _LandingPageState extends State<LandingPage>
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.white.withOpacity(0.08),
-                    Colors.white.withOpacity(0.03),
+                    Colors.white.withValues(alpha: 0.08),
+                    Colors.white.withValues(alpha: 0.03),
                   ],
                 ),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.15),
+                  color: Colors.white.withValues(alpha: 0.15),
                   width: 1.5,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: color.withOpacity(0.1),
+                    color: color.withValues(alpha: 0.1),
                     blurRadius: 20,
                     spreadRadius: 2,
                   ),
@@ -620,14 +620,14 @@ class _LandingPageState extends State<LandingPage>
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          color.withOpacity(0.3),
-                          color.withOpacity(0.1),
+                          color.withValues(alpha: 0.3),
+                          color.withValues(alpha: 0.1),
                         ],
                       ),
                       borderRadius: BorderRadius.circular(14),
                       boxShadow: [
                         BoxShadow(
-                          color: color.withOpacity(0.3),
+                          color: color.withValues(alpha: 0.3),
                           blurRadius: 15,
                           spreadRadius: 2,
                         ),
@@ -649,7 +649,7 @@ class _LandingPageState extends State<LandingPage>
                     subtitle,
                     style: TextStyle(
                       fontSize: 13,
-                      color: Colors.white.withOpacity(0.65),
+                      color: Colors.white.withValues(alpha: 0.65),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -690,8 +690,8 @@ class _LandingPageState extends State<LandingPage>
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primaryColor.withOpacity(
-                        0.4 + (_pulseAnimation.value - 1) * 3,
+                      color: AppColors.primaryColor.withValues(
+                        alpha: 0.4 + (_pulseAnimation.value - 1) * 3,
                       ),
                       blurRadius: 25 + (_pulseAnimation.value - 1) * 40,
                       spreadRadius: (_pulseAnimation.value - 1) * 15,
@@ -748,7 +748,7 @@ class _LandingPageState extends State<LandingPage>
       opacity: _fadeAnimation,
       child: Text(
         'By continuing, you agree to our Terms of Service',
-        style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.4)),
+        style: TextStyle(fontSize: 12, color: Colors.white.withValues(alpha: 0.4)),
       ),
     );
   }
@@ -784,11 +784,11 @@ class ParticlePainter extends CustomPainter {
         const Color(0xFF00A8E8),
       ];
 
-      paint.color = colors[colorIndex].withOpacity(opacity);
+      paint.color = colors[colorIndex].withValues(alpha: opacity);
       
       // Add glow effect
-      canvas.drawCircle(Offset(x, y), radius + 2, paint..color = colors[colorIndex].withOpacity(opacity * 0.3));
-      canvas.drawCircle(Offset(x, y), radius, paint..color = colors[colorIndex].withOpacity(opacity));
+      canvas.drawCircle(Offset(x, y), radius + 2, paint..color = colors[colorIndex].withValues(alpha: opacity * 0.3));
+      canvas.drawCircle(Offset(x, y), radius, paint..color = colors[colorIndex].withValues(alpha: opacity));
     }
   }
 
@@ -812,7 +812,7 @@ class MeshGradientPainter extends CustomPainter {
       final x = (size.width * (i / 5)) + math.sin(animation * math.pi * 2 + i) * 100;
       final y = size.height * 0.3 + math.cos(animation * math.pi * 2 + i * 0.7) * 150;
 
-      paint.color = const Color(0xFF004EC4).withOpacity(0.03);
+      paint.color = const Color(0xFF004EC4).withValues(alpha: 0.03);
       canvas.drawCircle(Offset(x, y), 150, paint);
     }
   }
@@ -851,7 +851,7 @@ class LightRaysPainter extends CustomPainter {
         )
         ..close();
 
-      paint.color = const Color(0xFF006BF3).withOpacity(0.02);
+      paint.color = const Color(0xFF006BF3).withValues(alpha: 0.02);
       canvas.drawPath(path, paint);
     }
   }
@@ -876,7 +876,7 @@ class ButtonShimmerPainter extends CustomPainter {
         end: Alignment.centerRight,
         colors: [
           Colors.transparent,
-          Colors.white.withOpacity(0.2),
+          Colors.white.withValues(alpha: 0.2),
           Colors.transparent,
         ],
         stops: [

@@ -6,10 +6,8 @@ import 'models/movies.dart';
 
 final section1 = List.generate(
   16,
-  (index) => Seat(
-    isHidden: [0, 1, 4].contains(index),
-    isOcuppied: [].contains(index),
-  ),
+  (index) =>
+      Seat(isHidden: [0, 1, 4].contains(index), isOcuppied: [].contains(index)),
 );
 
 final section2 = List.generate(
@@ -30,36 +28,22 @@ final section3 = List.generate(
 
 final section4 = List.generate(
   20,
-  (index) => Seat(
-    isHidden: [].contains(index),
-    isOcuppied: [1, 2, 3].contains(index),
-  ),
+  (index) =>
+      Seat(isHidden: [].contains(index), isOcuppied: [1, 2, 3].contains(index)),
 );
 
 final section5 = List.generate(
   20,
-  (index) => Seat(
-    isHidden: [].contains(index),
-    isOcuppied: [].contains(index),
-  ),
+  (index) => Seat(isHidden: [].contains(index), isOcuppied: [].contains(index)),
 );
 
 final section6 = List.generate(
   20,
-  (index) => Seat(
-    isHidden: [].contains(index),
-    isOcuppied: [14].contains(index),
-  ),
+  (index) =>
+      Seat(isHidden: [].contains(index), isOcuppied: [14].contains(index)),
 );
 
-final seats = [
-  section1,
-  section2,
-  section3,
-  section4,
-  section5,
-  section6,
-];
+final seats = [section1, section2, section3, section4, section5, section6];
 
 const seatTypes = [
   SeatType(name: 'Available', color: Colors.grey),
@@ -163,7 +147,7 @@ final series = [
     seats: seats,
   ),
   Movie(
-    name: 'Stranger ',
+    name: 'Stranger Things',
     image: 'assets/images/stranger_things.jpg',
     screenPreview: 'assets/images/stranger_things.jpg',
     description:
@@ -418,64 +402,64 @@ final tvShows = [
     seats: seats,
   ),
   Movie(
-    name: 'The Mandalorian',
+    name: 'Brooklyn Nine-Nine',
     image: 'assets/images/brooklyn_99.jpg',
     screenPreview: 'assets/images/brooklyn_99.jpg',
     description:
-        'The travels of a lone bounty hunter in the outer reaches of the galaxy, '
-        'far from the authority of the New Republic.',
-    type: 'Sci-Fi',
+        'Jake Peralta, an immature but talented NYPD detective in Brooklyn\'s 99th Precinct, '
+        'comes into conflict with his new commanding officer, the serious and stern Captain Raymond Holt.',
+    type: 'Comedy',
     hours: 1,
-    director: 'Jon Favreau',
+    director: 'Dan Goor',
     stars: 5,
     actors: [
-      'Pedro Pascal',
-      'Carl Weathers',
-      'Giancarlo Esposito',
-      'Katee Sackhoff',
-      'Emily Swallow',
+      'Andy Samberg',
+      'Stephanie Beatriz',
+      'Terry Crews',
+      'Melissa Fumero',
+      'Andre Braugher',
     ],
     dates: dates,
     seats: seats,
   ),
   Movie(
-    name: 'House of the Dragon',
+    name: 'Modern Family',
     image: 'assets/images/modern_family.jpg',
     screenPreview: 'assets/images/modern_family.jpg',
     description:
-        'An internal succession war within House Targaryen at the height of its power, '
-        '172 years before the birth of Daenerys Targaryen.',
-    type: 'Fantasy',
+        'Three different but related families face trials and tribulations in their own uniquely comedic ways, '
+        'giving us an honest and often hilarious look at the sometimes-chaotic dynamics of modern family life.',
+    type: 'Comedy',
     hours: 1,
-    director: 'Ryan Condal',
+    director: 'Christopher Lloyd',
     stars: 5,
     actors: [
-      'Paddy Considine',
-      'Matt Smith',
-      'Emma D\'Arcy',
-      'Olivia Cooke',
-      'Rhys Ifans',
+      'Ed O\'Neill',
+      'Sofía Vergara',
+      'Julie Bowen',
+      'Ty Burrell',
+      'Jesse Tyler Ferguson',
     ],
     dates: dates,
     seats: seats,
   ),
   Movie(
-    name: 'The Last of Us',
+    name: 'The Simpsons',
     image: 'assets/images/the_simpsons.jpg',
     screenPreview: 'assets/images/the_simpsons.jpg',
     description:
-        'After a global pandemic destroys civilization, a hardened survivor takes charge '
-        'of a 14-year-old girl who may be humanity\'s last hope.',
-    type: 'Drama',
+        'The satiric adventures of a working-class family in the misfit city of Springfield. '
+        'Homer, Marge, Bart, Lisa and Maggie navigate everyday life in their own unique way.',
+    type: 'Animation',
     hours: 1,
-    director: 'Craig Mazin',
+    director: 'Matt Groening',
     stars: 5,
     actors: [
-      'Pedro Pascal',
-      'Bella Ramsey',
-      'Anna Torv',
-      'Gabriel Luna',
-      'Merle Dandridge',
+      'Dan Castellaneta',
+      'Nancy Cartwright',
+      'Julie Kavner',
+      'Yeardley Smith',
+      'Hank Azaria',
     ],
     dates: dates,
     seats: seats,

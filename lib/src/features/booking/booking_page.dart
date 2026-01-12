@@ -116,7 +116,7 @@ class _BookingPageState extends State<BookingPage>
                     PageRouteBuilder(
                       transitionDuration: transitionDuration,
                       reverseTransitionDuration: transitionDuration,
-                      pageBuilder: (_, animation, ___) {
+                      pageBuilder: (context, animation, secondaryAnimation) {
                         return FadeTransition(
                           opacity: animation,
                           // child: const BiometricsPage(), Uses Lottie

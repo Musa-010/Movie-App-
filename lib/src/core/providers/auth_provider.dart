@@ -164,6 +164,7 @@ class AuthProvider extends ChangeNotifier {
         avatarUrl: avatarUrl,
       );
       await _loadUserProfile();
+      notifyListeners(); // Notify listeners after successful update
       return true;
     } catch (e) {
       _errorMessage = 'Failed to update profile';

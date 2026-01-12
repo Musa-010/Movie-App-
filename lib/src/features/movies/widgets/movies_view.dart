@@ -80,7 +80,7 @@ class _MoviesViewState extends State<MoviesView>
                           PageRouteBuilder(
                             transitionDuration: transitionDuration,
                             reverseTransitionDuration: transitionDuration,
-                            pageBuilder: (_, animation, ___) {
+                            pageBuilder: (context, animation, secondaryAnimation) {
                               return FadeTransition(
                                 opacity: animation,
                                 child: MoviePage(movie: movie),
@@ -98,9 +98,10 @@ class _MoviesViewState extends State<MoviesView>
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                           transform: Matrix4.identity()
-                            ..translate(
+                            ..setTranslationRaw(
                               isCurrentPage ? 0.0 : -20.0,
                               isCurrentPage ? 0.0 : 60.0,
+                              0.0,
                             ),
                           decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(
@@ -110,7 +111,7 @@ class _MoviesViewState extends State<MoviesView>
                               BoxShadow(
                                 blurRadius: 25,
                                 offset: const Offset(0, 25),
-                                color: Colors.black.withOpacity(.2),
+                                color: Colors.black.withValues(alpha: .2),
                               ),
                             ],
                             image: DecorationImage(
@@ -140,34 +141,36 @@ class _MoviesViewState extends State<MoviesView>
                     padding: EdgeInsets.symmetric(horizontal: w * .1),
                     child: Opacity(
                       opacity: 1 - opacity,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Hero(
-                            tag: movie.name,
-                            child: Material(
-                              type: MaterialType.transparency,
-                              child: Text(
-                                movie.name.toUpperCase(),
-                                style: AppTextStyles.movieNameTextStyle,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Hero(
+                              tag: movie.name,
+                              child: Material(
+                                type: MaterialType.transparency,
+                                child: Text(
+                                  movie.name.toUpperCase(),
+                                  style: AppTextStyles.movieNameTextStyle,
+                                ),
                               ),
                             ),
-                          ),
-                          ValueListenableBuilder<bool>(
-                            valueListenable: _showMovieDetails,
-                            builder: (_, value, __) {
-                              return Visibility(
-                                visible: value,
-                                child: Text(
-                                  movie.actors.join(', '),
-                                  style: AppTextStyles.movieDetails,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              );
-                            },
-                          ),
-                        ],
+                            ValueListenableBuilder<bool>(
+                              valueListenable: _showMovieDetails,
+                              builder: (context, value, child) {
+                                return Visibility(
+                                  visible: value,
+                                  child: Text(
+                                    movie.actors.join(', '),
+                                    style: AppTextStyles.movieDetails,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );

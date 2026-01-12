@@ -52,7 +52,7 @@ class FaceIDPainter extends CustomPainter {
     final strokeWidth = s * 0.06;
     final facePaint = Paint()
       ..strokeWidth = strokeWidth
-      ..color = AppColors.primaryColor.withOpacity(faceOpacity)
+      ..color = AppColors.primaryColor.withValues(alpha: faceOpacity)
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
@@ -62,7 +62,7 @@ class FaceIDPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..color = canBlink
           ? Colors.transparent
-          : AppColors.primaryColor.withOpacity(faceOpacity)
+          : AppColors.primaryColor.withValues(alpha: faceOpacity)
       ..strokeCap = StrokeCap.round;
     final leftEyeP1 = Offset(oneThird + moveX, oneThird + moveY);
     final leftEyeP2 = Offset(oneThird + moveX, oneThird + eyeLength + moveY);

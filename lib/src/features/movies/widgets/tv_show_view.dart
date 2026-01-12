@@ -95,7 +95,7 @@ class _TvShowViewState extends State<TvShowView>
                               PageRouteBuilder(
                                 transitionDuration: transitionDuration,
                                 reverseTransitionDuration: transitionDuration,
-                                pageBuilder: (_, animation, ___) {
+                                pageBuilder: (context, animation, secondaryAnimation) {
                                   return FadeTransition(
                                     opacity: animation,
                                     child: MoviePage(movie: tvShow),
@@ -114,9 +114,10 @@ class _TvShowViewState extends State<TvShowView>
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
                               transform: Matrix4.identity()
-                                ..translate(
+                                ..setTranslationRaw(
                                   isCurrentPage ? 0.0 : -20.0,
                                   isCurrentPage ? 0.0 : 60.0,
+                                  0.0,
                                 ),
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
@@ -126,7 +127,7 @@ class _TvShowViewState extends State<TvShowView>
                                   BoxShadow(
                                     blurRadius: 25,
                                     offset: const Offset(0, 25),
-                                    color: Colors.black.withOpacity(.2),
+                                    color: Colors.black.withValues(alpha: .2),
                                   ),
                                 ],
                                 image: DecorationImage(
@@ -160,36 +161,38 @@ class _TvShowViewState extends State<TvShowView>
                         padding: EdgeInsets.symmetric(horizontal: w * .1),
                         child: Opacity(
                           opacity: 1 - opacity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Hero(
-                                tag: tvShow.name,
-                                child: Material(
-                                  type: MaterialType.transparency,
-                                  child: Text(
-                                    tvShow.name.toUpperCase(),
-                                    style: AppTextStyles.movieNameTextStyle,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ),
-                              ValueListenableBuilder<bool>(
-                                valueListenable: _showTvShowDetails,
-                                builder: (_, value, __) {
-                                  return Visibility(
-                                    visible: value,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Hero(
+                                  tag: tvShow.name,
+                                  child: Material(
+                                    type: MaterialType.transparency,
                                     child: Text(
-                                      tvShow.actors.join(', '),
-                                      style: AppTextStyles.movieDetails,
-                                      maxLines: 1,
+                                      tvShow.name.toUpperCase(),
+                                      style: AppTextStyles.movieNameTextStyle,
+                                      maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                     ),
-                                  );
-                                },
-                              ),
-                            ],
+                                  ),
+                                ),
+                                ValueListenableBuilder<bool>(
+                                  valueListenable: _showTvShowDetails,
+                                  builder: (context, value, child) {
+                                    return Visibility(
+                                      visible: value,
+                                      child: Text(
+                                        tvShow.actors.join(', '),
+                                        style: AppTextStyles.movieDetails,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       );
@@ -200,7 +203,8 @@ class _TvShowViewState extends State<TvShowView>
             ),
           );
         },
-      );
+      ),
+    );
   }
 
   void _tvShowCardPagePercentListener() {

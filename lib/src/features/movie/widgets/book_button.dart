@@ -22,7 +22,7 @@ class BookButton extends StatelessWidget {
           PageRouteBuilder(
             transitionDuration: transitionDuration,
             reverseTransitionDuration: transitionDuration,
-            pageBuilder: (_, animation, ___) {
+            pageBuilder: (context, animation, secondaryAnimation) {
               return FadeTransition(
                 opacity: animation,
                 child: BookingPage(movie: movie),
