@@ -255,6 +255,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   onPressed: _isApplyingPromo ? null : _applyPromoCode,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue.shade700,
+                    foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),

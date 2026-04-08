@@ -16,7 +16,7 @@ class MovieSeatSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Flexible(
       child: GridView.builder(
         padding: const EdgeInsets.symmetric(
           horizontal: 10,

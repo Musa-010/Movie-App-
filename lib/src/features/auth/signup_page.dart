@@ -4,6 +4,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
 import '../../core/constants/constants.dart';
 import '../../core/providers/auth_provider.dart';
+import 'otp_verification_page.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -78,15 +79,13 @@ class _SignupPageState extends State<SignupPage> {
     );
 
     if (success && mounted) {
+      Navigator.of(context).popUntil((route) => route.isFirst);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text(
-            'Account created successfully! Please verify your email.',
-          ),
+          content: Text('Account created successfully!'),
           backgroundColor: Colors.green,
         ),
       );
-      Navigator.pop(context);
     } else if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

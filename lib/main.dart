@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +7,7 @@ import 'src/core/config/supabase_config.dart';
 import 'src/core/providers/auth_provider.dart';
 import 'src/core/providers/theme_provider.dart';
 import 'src/core/providers/payment_provider.dart';
+import 'src/core/providers/movie_content_provider.dart';
 import 'src/core/services/stripe_service.dart';
 
 void main() async {
@@ -32,6 +32,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => PaymentProvider()),
+        ChangeNotifierProvider(create: (_) => MovieContentProvider()),
       ],
       child: const App(),
     ),
