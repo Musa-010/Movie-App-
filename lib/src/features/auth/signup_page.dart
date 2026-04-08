@@ -318,8 +318,9 @@ class _SignupPageState extends State<SignupPage> {
                                     icon: 'G',
                                     label: 'Google',
                                     isGoogle: true,
-                                    onTap: () {
-                                      // Google sign up
+                                    onTap: () async {
+                                      final authProvider = context.read<AuthProvider>();
+                                      await authProvider.signInWithGoogle();
                                     },
                                   ),
                                 ),
@@ -330,7 +331,11 @@ class _SignupPageState extends State<SignupPage> {
                                     label: 'Facebook',
                                     isGoogle: false,
                                     onTap: () {
-                                      // Facebook sign up
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                          content: Text('Facebook Sign Up coming soon'),
+                                        ),
+                                      );
                                     },
                                   ),
                                 ),

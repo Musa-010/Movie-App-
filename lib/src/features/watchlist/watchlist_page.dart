@@ -138,7 +138,9 @@ class _WatchlistTab extends StatelessWidget {
           const SizedBox(height: 24),
           ElevatedButton.icon(
             onPressed: () {
-              // Navigate to browse/discover page
+              if (Navigator.canPop(context)) {
+                Navigator.pop(context);
+              }
             },
             icon: const Icon(Iconsax.discover),
             label: const Text('Discover Movies'),

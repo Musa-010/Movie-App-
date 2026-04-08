@@ -376,11 +376,50 @@ class _ProfilePageState extends State<ProfilePage> {
 
               const SizedBox(height: 40),
 
+              // Dark Mode Toggle
+              ListTile(
+                onTap: () {
+                  context.read<ThemeProvider>().toggleTheme();
+                },
+                contentPadding: EdgeInsets.zero,
+                leading: Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: isDark ? Colors.grey.shade800 : Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(
+                    isDark ? Iconsax.moon5 : Iconsax.sun_1,
+                    color: isDark ? Colors.amber : Colors.grey.shade700,
+                  ),
+                ),
+                title: Text(
+                  'Dark Mode',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: isDark ? Colors.white : Colors.black87,
+                  ),
+                ),
+                trailing: Switch(
+                  value: isDark,
+                  onChanged: (_) {
+                    context.read<ThemeProvider>().toggleTheme();
+                  },
+                  activeColor: Colors.blue.shade700,
+                ),
+              ),
+
               // Menu Items
               _buildMenuItem(
                 icon: Iconsax.notification,
                 title: 'Notifications',
-                onTap: () {},
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Notifications coming soon')),
+                  );
+                },
                 isDark: isDark,
               ),
               _buildMenuItem(
@@ -423,19 +462,34 @@ class _ProfilePageState extends State<ProfilePage> {
               _buildMenuItem(
                 icon: Iconsax.shield_tick,
                 title: 'Privacy & Security',
-                onTap: () {},
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Privacy & Security coming soon')),
+                  );
+                },
                 isDark: isDark,
               ),
               _buildMenuItem(
                 icon: Iconsax.message_question,
                 title: 'Help & Support',
-                onTap: () {},
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Help & Support coming soon')),
+                  );
+                },
                 isDark: isDark,
               ),
               _buildMenuItem(
                 icon: Iconsax.info_circle,
                 title: 'About',
-                onTap: () {},
+                onTap: () {
+                  showAboutDialog(
+                    context: context,
+                    applicationName: 'StreamTix',
+                    applicationVersion: '1.0.0',
+                    applicationLegalese: '2026 StreamTix. All rights reserved.',
+                  );
+                },
                 isDark: isDark,
               ),
 

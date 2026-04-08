@@ -20,7 +20,7 @@ class _SeatBoxState extends State<MovieSeatBox> {
   Widget build(BuildContext context) {
     final color = widget.seat.isHidden
         ? Colors.white
-        : widget.seat.isOcuppied
+        : widget.seat.isOccupied
             ? Colors.black
             : widget.seat.isSelected
                 ? AppColors.primaryColor

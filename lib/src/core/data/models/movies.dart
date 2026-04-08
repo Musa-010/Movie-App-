@@ -42,12 +42,12 @@ class MovieDate {
 
 class Seat {
   final bool isHidden;
-  final bool isOcuppied;
+  final bool isOccupied;
   bool isSelected;
 
   Seat({
     required this.isHidden,
-    required this.isOcuppied,
+    required this.isOccupied,
     this.isSelected = false,
   });
 }

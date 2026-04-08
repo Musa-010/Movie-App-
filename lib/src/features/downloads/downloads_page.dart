@@ -103,7 +103,10 @@ class _DownloadsPageState extends State<DownloadsPage> {
             const SizedBox(height: 32),
             ElevatedButton.icon(
               onPressed: () {
-                // Navigate to discover/browse page
+                // Switch to Search tab (index 1) in home page
+                if (Navigator.canPop(context)) {
+                  Navigator.pop(context);
+                }
               },
               icon: const Icon(Iconsax.discover),
               label: const Text('Find Something to Download'),
