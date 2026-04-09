@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
 
 class CloudinaryService {
@@ -10,12 +11,15 @@ class CloudinaryService {
 
   Future<String?> uploadImage(File imageFile) async {
     try {
+      debugPrint('Cloudinary: Uploading image from ${imageFile.path}');
+      debugPrint('Cloudinary: File exists: ${imageFile.existsSync()}, size: ${imageFile.lengthSync()} bytes');
       CloudinaryResponse response = await _cloudinary.uploadFile(
         CloudinaryFile.fromFile(imageFile.path, resourceType: CloudinaryResourceType.Image),
       );
+      debugPrint('Cloudinary: Upload success - ${response.secureUrl}');
       return response.secureUrl;
     } catch (e) {
-      // print('Cloudinary upload error: $e');
+      debugPrint('Cloudinary upload error: $e');
       return null;
     }
   }
